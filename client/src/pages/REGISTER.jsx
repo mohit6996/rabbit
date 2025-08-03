@@ -75,7 +75,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom'; // ⛔ fix: use `react-router-dom`
 import register from "../assets/register.webp";
-import { registerUser } from '../../../server/data/slices/authSlice';
+import { registerUser } from '../redux/slices/authSlice';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'sonner';
 
