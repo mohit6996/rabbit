@@ -7,7 +7,7 @@ export const tosubscribe = createAsyncThunk(
   async (email, thunkAPI) => {
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/subscribe`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/subscribe`,
         { email }
       );
       return response.data;

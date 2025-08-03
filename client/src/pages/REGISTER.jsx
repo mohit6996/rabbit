@@ -76,11 +76,12 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom'; // ⛔ fix: use `react-router-dom`
 import register from "../assets/register.webp";
 import { registerUser } from '../redux/slices/authSlice';
-
+import { mergeCart } from '../redux/slices/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'sonner';
 
 const REGISTER = () => {
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -89,21 +90,24 @@ const REGISTER = () => {
   const [name, setname] = useState("");
   const [pass, setpass] = useState("");
 
-  const { user, loading, error } = useSelector((s) => s.auth);
+  const { user, loading, error,guestId } = useSelector((s) => s.auth);
+    const { cart } = useSelector((state) => state.cart) || {};
+  
 
   const redirect = new URLSearchParams(location.search).get("redirect") || "/";
   const isCheckoutRedirect = redirect.includes("checkout");
 
   useEffect(() => {
-    if (error) {
-      toast.error(error || "Something went wrong");
-    }
-
     if (user) {
-      navigate(isCheckoutRedirect ? "/checkout" : "/");
+      if (cart?.products?.length > 0 && guestId) {
+        dispatch(mergeCart({ guestId })).then(() => {
+          navigate(isCheckoutRedirect ? "/checkout" : "/");
+        });
+      } else {
+        navigate(isCheckoutRedirect ? "/checkout" : "/");
+      }
     }
-  }, [error, user, isCheckoutRedirect, navigate]);
-
+  }, [user, guestId, isCheckoutRedirect, cart, dispatch, navigate]);
   function handlesubmit(e) {
     e.preventDefault();
     dispatch(registerUser({ email, name, password: pass }));
