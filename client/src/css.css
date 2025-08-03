@@ -1,6 +1,7 @@
+@import "tailwindcss";
 .rrr{
-background-color:#ea2e0e;
+    background-color:#d64004;
 }
 .rr{
-    color:#ea2e0e
+    color:#d64004
 }

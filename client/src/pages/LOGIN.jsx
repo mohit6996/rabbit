@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import login from "../assets/login.webp";
-import { loginUser } from '../../../../server/data/slices/authSlice';
+import { loginUser } from '../redux/slices/authSlice';
+
+// import { loginUser } from '../../../../server/data/slices/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { mergeCart } from '../../redux/slices/cartSlice';
+import { mergeCart } from '../redux/slices/cartSlice';
 import { toast } from "react-toastify";
 
 const LOGIN = () => {
