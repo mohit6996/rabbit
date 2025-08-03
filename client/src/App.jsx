@@ -2,7 +2,6 @@
 import { Route, Routes } from 'react-router'
 import HOME from './pages/HOME'
 import Userlayout from './components/LAYOUT/userlayout'
-import {Toaster} from "sonner"
 import LOGIN from './pages/LOGIN.jsx'
 import REGISTER from './pages/REGISTER.jsx'
 import PROFILE from './pages/PROFILE.jsx'
