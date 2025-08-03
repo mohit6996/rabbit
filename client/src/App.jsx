@@ -14,7 +14,7 @@ import MYORDERS from './pages/MYORDERS.jsx'
 import AdminLayout from './components/ADMIN/AdminLayout.jsx'
 import ADMINHOMEPAGE from './pages/ADMINHOMEPAGE.jsx'
 import AdminUsermanagement from './components/ADMIN/AdminUsermanagement.jsx'
-import Adminproductmanagement from './components/ADMIN/adminproductmanagement.jsx'
+import Adminproductmanagement from './components/ADMIN/Adminproductmanagement.jsx'
 import Adminproductedit from './components/ADMIN/Adminproductedit.jsx'
 import AdminOrdermanagement from './components/ADMIN/AdminOrdermanagement.jsx'
 import {Provider} from "react-redux"
